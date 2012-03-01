@@ -6,8 +6,6 @@ from django.template import RequestContext
 from django.db.models import Q
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
-from sizeconnect.interface.dashboard.models import Item, Cluster, PairwiseConstraint, Tag
-
 def home(request):
     """ Generate main content
         Take filter / order by restraints from POST
