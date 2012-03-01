@@ -11,4 +11,3 @@ def home(request):
         Take filter / order by restraints from POST
     """
     return render_to_response('simulation.html')
-    return HttpResponse("what is love?")
