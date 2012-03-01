@@ -103,7 +103,8 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'curiosity.urls'
 
 TEMPLATE_DIRS = (
-    "//home/ubuntu/django_templates"
+    "/home/ubuntu/curiosity/templates",
+    "/home/ubuntu/django_templates"
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
