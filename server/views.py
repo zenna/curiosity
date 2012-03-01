@@ -10,4 +10,5 @@ def home(request):
     """ Generate main content
         Take filter / order by restraints from POST
     """
+    return render_to_response('simulation.html', {'latest_poll_list': latest_poll_list})
     return HttpResponse("what is love?")
