@@ -52,7 +52,7 @@ $(document).ready(function() {
 
         //create some objects
         bodyDef.type = b2Body.b2_dynamicBody;
-        for(var i = 0; i < 150; ++i) {
+        for(var i = 0; i < 5; ++i) {
             if(Math.random() > 0.5) {
                 fixDef.shape = new b2PolygonShape;
                 fixDef.shape.SetAsBox(Math.random() + 0.1//half width
