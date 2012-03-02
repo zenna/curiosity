@@ -85,6 +85,7 @@ $(document).ready(function() {
         , 10       //position iterations
         );
         timer += 1;
+        $('#timer').text(timer);
         world.DrawDebugData();
         world.ClearForces();
 
