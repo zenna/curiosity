@@ -9,6 +9,7 @@ window.requestAnimFrame = (function() {
 $(document).ready(function() {
     var canvas = document.getElementById("c");
     var ctx = canvas.getContext("2d");
+    var timer=0;
 
     var world;
 
@@ -76,8 +77,6 @@ $(document).ready(function() {
         debugDraw.SetLineThickness(1.0);
         debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
         world.SetDebugDraw(debugDraw);
-
-        setTimeout(init, 6000);
     }; // init()
 
     function update() {
@@ -85,10 +84,10 @@ $(document).ready(function() {
         , 10//velocity iterations
         , 10       //position iterations
         );
+        timer += 1;
         world.DrawDebugData();
         world.ClearForces();
 
-        // stats.update();
         requestAnimFrame(update);
     }; // update()
 
