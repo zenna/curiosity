@@ -10,6 +10,7 @@ $(document).ready(function() {
     var canvas = document.getElementById("c");
     var ctx = canvas.getContext("2d");
     var timer=0;
+    var actionQueue = {};
 
     var world;
 
@@ -78,6 +79,12 @@ $(document).ready(function() {
         debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
         world.SetDebugDraw(debugDraw);
     }; // init()
+    
+    // Move a circle
+    function generateForce(action) {
+    	// TODO generateforce on item
+    	alert("generating action");
+    }
 
     function update() {
         world.Step(1 / 60//frame-rate
@@ -86,12 +93,27 @@ $(document).ready(function() {
         );
         timer += 1;
         $('#timer').text(timer);
+        
+		if (timer in actionQueue) {
+			var action = actionQueue[timer];
+			generateForce(action);
+			logAction(action);
+		}
+        
         world.DrawDebugData();
         world.ClearForces();
 
         requestAnimFrame(update);
     }; // update()
 
+	// Handle clicking
+	$('canvas').click(function(){
+		// TODO: Check coordinates of click
+		// Find out which item it is
+		// Modify create an action
+		// Modify actionQueue
+	});
+	
     init();
     requestAnimFrame(update);
 });
