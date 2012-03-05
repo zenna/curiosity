@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+Copyright 2011 Seth Ladd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Box2D Javascript Fun : 13 : Box2D with Distance Joints and HTML5 Canvas</title>
+		<link rel="author" href="http://profiles.google.com/sethladd">
+		<script src="static/js/Box2D.js"></script>
+		<script src="static/js/jquery-1.4.4.min.js" type="text/javascript"></script>
+		<script src="static/js/jquery.ba-hashchange.min.js" type="text/javascript"></script>
+		<script src="static/js/bTest2.js"></script>
+		<script src="static/js/io.js"></script>
+		<script src="static/js/simulation.js"></script>
+
+		<style>
+			body {
+				-webkit-transform: translateZ(0);
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="c0" width="640" height="480" style="border: 1px solid black"></canvas>
+		<div>
+			Damping Ratio (0 for ignore):
+			<input type="range" min="0" max="1" id="damping-ratio" value="0" step="0.1">
+			<output id="damping-ratio-output">
+				0
+			</output>
+		</div>
+		<div>
+			Frequency Hz (0 for ignore):
+			<input type="range" min="0" max="30" id="frequency-hz" value="0">
+			<output id="frequency-hz-output">
+				0
+			</output>
+		</div>
+		<h1>Box2D with Distance Joints and HTML5 Canvas</h1>
+		<p>
+			<a href="http://blog.sethladd.com/2011/09/box2d-impulse-and-javascript.html">Read matching blog post for explanation</a>
+		</p>
+		<p>
+			Black dot is the position of the object, the yellow dot is the center of mass.
+		</p>
+		<script>
+            function linkRangeToOutput(id) {
+                document.getElementById(id).addEventListener('change', function(e) {
+                    document.getElementById(id + '-output').value = e.target.value;
+                });
+
+            }
+
+            linkRangeToOutput('damping-ratio');
+            linkRangeToOutput('frequency-hz');
+
+		</script>
+	</body>
+</html>
