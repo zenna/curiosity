@@ -181,10 +181,14 @@ $(function(){
     }
     
     var guid = guidGenerator();
-    $('body').click(function(){
-    	alert("GUID="+guid);
+    $('#start').click(function(){
+    	// alert("GUID="+guid);
         $('#simulation-iframe').attr('src',"http://ec2-50-17-0-135.compute-1.amazonaws.com/#newhash"+guid);
      });
+    $('.stop').click(function() {
+    	$('#quiz').show();
+    });
+     
 });
 </script>
 <style type="text/css">
@@ -193,73 +197,112 @@ $(function(){
 				padding: 0 0 0 0;
 				border: none;
 			}
+			
+			#quiz {
+				display : none;
+			}
+			
+.button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}.button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+}.button:active {
+	position:relative;
+	top:1px;
+}
+
+.start {
+	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811) );
+	background:-moz-linear-gradient( center top, #77d42a 5%, #5cb811 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811');
+	background-color:#77d42a;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #268a16;
+	display:inline-block;
+	color:#306108;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #aade7c;
+}.start:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a) );
+	background:-moz-linear-gradient( center top, #5cb811 5%, #77d42a 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a');
+	background-color:#5cb811;
+}.start:active {
+	position:relative;
+	top:1px;
+}
+
+.stop {
+	-moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100) );
+	background:-moz-linear-gradient( center top, #fe1a00 5%, #ce0100 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100');
+	background-color:#fe1a00;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #b23e35;
+}.stop:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ce0100), color-stop(1, #fe1a00) );
+	background:-moz-linear-gradient( center top, #ce0100 5%, #fe1a00 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce0100', endColorstr='#fe1a00');
+	background-color:#ce0100;
+}.stop:active {
+	position:relative;
+	top:1px;
+}
 </style>
-<iframe id="simulation-iframe" src="http://ec2-50-17-0-135.compute-1.amazonaws.com/#newhash" width="640" height="480" scrolling="no"></iframe>
-<h1>Enter the Title of Your HIT - this gives workers an idea of what the task is</h1>
-<p>Enter instructions for your HIT.&nbsp; It's a good idea to:</p>
-<ul>
-    <li>Be sure to be as specific as possible in your instructions so that there's no confusion.&nbsp; For example, when asking workers to exact text from an image, ask workers to type the text exactly as shown in the image including capitalizations, spaces and puntuations.</li>
-    <li>include an example of a right answer, and a wrong answer</li>
-    <li>clarify what you expect if the HIT is not doable because of missing data or other problems</li>
+<h1>Instructions</h1>
+<ul class = "instructions">
+<li>The box below will present an interactive 2D physical simulation.</li>
+<li>You may interact with the simulation by clicking on the balls</li>
+<li>Once you feel you understand the dynamics of the world press the red button below</li>
 </ul>
-<p>1. This is an example of a multiple choice question, select only ONE of the following:</p>
-<table cellspacing="4" cellpadding="0" border="0">
-    <tbody>
-        <tr>
-            <td valign="center"><input type="radio" value="Choice1" name="Q1" /></td>
-            <td><span class="answertext">Choice 1</span></td>
-        </tr>
-        <tr>
-            <td valign="center"><input type="radio" value="Choice2" name="Q1" /></td>
-            <td><span class="answertext">Choice 2</span></td>
-        </tr>
-    </tbody>
-</table>
-<p>&nbsp;2. This is an example of a free text answer, use this when you only need workers to enter a line of text:</p>
-<p><input type="text" size="20" id="Q2" name="Q2" /></p>
-<p>&nbsp;3. This is another example of a multiple choice question, select only ONE of the following.&nbsp;  A drop down list saves more screen real estate than radio buttons (see Question 1) but may require more keystrokes for the Worker to select the answer they want.</p>
-<p><select name="Q3">
-<option>Choice 1</option>
-<option>Choice 2</option>
-<option>Choice 3</option>
-<option>Choice 4</option>
-<option>Choice 5</option>
-<option>Choice 6</option>
-</select></p>
-<p>&nbsp;4. This is an example of a question where you can select one or more of these options:</p>
-<p><select size="4" name="Q4" multiple="">
-<option>selection 1</option>
-<option>selection 2</option>
-<option>selection 3</option>
-<option>selection 4</option>
-<option>selection 5</option>
-<option>selection 6</option>
-<option>selection 7</option>
-</select></p>
-<p>&nbsp;5. This is another example of a question that can have multiple answers (select all that apply):</p>
-<table cellspacing="4" cellpadding="0" border="0">
-    <tbody>
-        <tr>
-            <td valign="center"><input type="checkbox" value="Option1" name="Q5" /></td>
-            <td><span class="answertext">Option 1</span></td>
-        </tr>
-        <tr>
-            <td valign="center"><input type="checkbox" value="Option2" name="Q5" /></td>
-            <td><span class="answertext">Option 2</span></td>
-        </tr>
-        <tr>
-            <td valign="center"><input type="checkbox" value="Option3" name="Q5" /></td>
-            <td><span class="answertext">Option 3</span></td>
-        </tr>
-        <tr>
-            <td valign="center"><input type="checkbox" value="Option4" name="Q5" /></td>
-            <td><span class="answertext">Option 4</span></td>
-        </tr>
-        <tr>
-            <td valign="center"><input type="checkbox" value="Option5" name="Q5" /></td>
-            <td><span class="answertext">Option 5</span></td>
-        </tr>
-    </tbody>
-</table>
-<p>&nbsp;This is an example of a question that requires a longer free text.&nbsp;  In general, it's a good idea to ask workers to provide feedback on your HIT via a text box such as this one at the bottom of your HIT.</p>
-<p><textarea rows="3" cols="80" name="comment"></textarea></p>
+<span class="start" id="startSimulation">Click Here to Start the Simulation</span>
+
+<iframe id="simulation-iframe" src="http://localhost:8080/simulation2.html" width="640" height="480" scrolling="no"></iframe>
+<span class="stop" id="stopSimulation">Click Here to Stop the Simulation</span>
+
+<div id = "quiz">
+	Hidden
+</div>
