@@ -9,7 +9,7 @@ function bTest(intervalRate, adaptive, width, height, scale) {
 
     this.bodiesMap = {};
 
-    this.world = new b2World(new b2Vec2(0, 10)//gravity
+    this.world = new b2World(new b2Vec2(0, 0)//gravity
     , true                 //allow sleep
     );
 
@@ -192,12 +192,7 @@ bTest.prototype.mouseDownAt = function(x, y) {
             var degree = Math.random()*360;
             var power = 3000;
             
-            var currentBallPos = body.GetPosition();
-            var ball3pos = box.bodiesMap.ball1.GetPosition();
-            
-            // body.ApplyForce(new b2Vec2(power*(currentBallPos.x - ball3pos.x), power*(currentBallPos.y - ball3pos.y)), body.GetWorldCenter());
-
-            box.applyForce(body.m_userData, degree, power);
+            this.applyForce(body.m_userData, degree, power);
             var action = {
                 bodyId : body.m_userData,
                 action : 'impulse',
